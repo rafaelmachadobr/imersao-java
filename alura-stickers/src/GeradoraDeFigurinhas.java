@@ -1,3 +1,4 @@
+import java.awt.Graphics2D;
 import java.awt.image.BufferedImage;
 import java.io.File;
 
@@ -17,7 +18,9 @@ public class GeradoraDeFigurinhas {
         BufferedImage novaImagem = new BufferedImage(largura, novaAltura, BufferedImage.TRANSLUCENT);
 
         // Copiar a imagem original pra nova imagem (em memória)
-        
+        Graphics2D graphics = (Graphics2D) novaImagem.getGraphics();
+        graphics.drawImage(imagemOriginal, 0, 0, null);
+
         // Escrever uma frase na nova imagem
 
         // Escrever a nova imagem em um arquivo
