@@ -10,4 +10,6 @@ Também foi realizado o desafio de tornar a saída de dados mais atrativa, usand
 
 ## Aula 02 | 28/03/2023 | Gerando figurinhas para WhatsApp.
 
+Nesta aula, o objetivo foi gerar figurinhas para o WhatsApp a partir das imagens fornecidas pela API do IMDB. Mais uma vez, devido à instabilidade do IMDB, foram utilizados links alternativos oferecidos pelos instrutores. Foi percebido que as figurinhas de alguns filmes não eram geradas devido a presença de dois pontos (:) no nome do arquivo, o que foi resolvido substituindo os dois pontos por traço. Além disso, foi realizado o desafio de criar um diretório de saída para as imagens e centralizar o texto na figurinha. A fonte Impact foi adicionada e foi colocado um contorno (outline) no texto da imagem.
+
 ## Aula 03 | 29/03/2023 | Ligando as pontas: Refatoração e orientação a objetos.
