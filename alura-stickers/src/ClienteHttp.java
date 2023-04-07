@@ -17,7 +17,7 @@ public class ClienteHttp {
             return response.body();
             
         } catch (IOException | InterruptedException ex) {
-            throw new RuntimeException(ex);
+            throw new ClienteHttpException("Erro ao buscar dados da API");
         }
         
     }
