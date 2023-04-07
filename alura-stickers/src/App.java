@@ -13,10 +13,6 @@ public class App {
         ClienteHttp http = new ClienteHttp();
         String json = http.buscaDados(url);
 
-        // Extrair só os dados que interessam(titulo, poster, nota, ano)
-        JsonParser parser = new JsonParser();
-        List<Map<String, String>> listaDeConteudos = parser.parse(json);
-
         // Exibir e manipular os dados
         File diretorio = new File("alura-stickers\\saida");
         diretorio.mkdir();
