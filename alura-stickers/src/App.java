@@ -28,8 +28,8 @@ public class App {
 
             Conteudo conteudo = conteudos.get(i);
 
-            InputStream inputStream = new URL(conteudo.getUrlImagem()).openStream();
-            String nomeArquivo = "alura-stickers\\saida\\" + conteudo.getTitulo() + ".png";
+            InputStream inputStream = new URL(conteudo.urlImagem()).openStream();
+            String nomeArquivo = "alura-stickers\\saida\\" + conteudo.titulo() + ".png";
 
             geradora.cria(inputStream, nomeArquivo);
 
@@ -44,7 +44,7 @@ public class App {
             // }
             // System.out.println("\n");
 
-            System.out.println(conteudo.getTitulo());
+            System.out.println(conteudo.titulo());
             System.out.println();
 
         }
