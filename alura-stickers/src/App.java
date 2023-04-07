@@ -22,17 +22,17 @@ public class App {
 
         // Extrair só os dados que interessam(titulo, poster, nota, ano)
         JsonParser parser = new JsonParser();
-        List<Map<String, String>> listaDeFilmes = parser.parse(body);
+        List<Map<String, String>> listaDeConteudos = parser.parse(body);
 
         // Exibir e manipular os dados
         File diretorio = new File("alura-stickers\\saida");
         diretorio.mkdir();
 
         GeradoraDeFigurinhas geradora = new GeradoraDeFigurinhas();
-        for (Map<String, String> filme : listaDeFilmes) {
+        for (Map<String, String> conteudo : listaDeConteudos) {
 
-            String urlImagem = filme.get("image");
-            String titulo = filme.get("title");
+            String urlImagem = conteudo.get("image");
+            String titulo = conteudo.get("title");
 
             InputStream inputStream = new URL(urlImagem).openStream();
             String nomeArquivo = "alura-stickers\\saida\\" + titulo + ".png";
@@ -40,9 +40,9 @@ public class App {
             geradora.cria(inputStream, nomeArquivo);
 
             System.out.println("\u001b[1mTítulo:\u001b[m " + titulo);
-            System.out.println("\u001b[1mPoster:\u001b[m " + filme.get("image"));
-            System.out.println(filme.get("year"));
-            double classificacao = Double.parseDouble(filme.get("imDbRating"));
+            System.out.println("\u001b[1mPoster:\u001b[m " + conteudo.get("image"));
+            System.out.println(conteudo.get("year"));
+            double classificacao = Double.parseDouble(conteudo.get("imDbRating"));
             System.out.println("\u001b[1m\u001b[44m\u001b[37mClassificação: " + classificacao + "\u001b[m");
             int numeroEstrelinhas = (int) classificacao;
             for (int i = 1; i < numeroEstrelinhas; i++) {
