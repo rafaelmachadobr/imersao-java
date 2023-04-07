@@ -1,11 +1,6 @@
 import java.io.File;
 import java.io.InputStream;
-import java.net.URI;
 import java.net.URL;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-import java.net.http.HttpResponse.BodyHandlers;
 import java.util.List;
 import java.util.Map;
 
@@ -14,15 +9,13 @@ public class App {
 
         // Fazer uma conexão HTTP e buscar os top 250 filmes do IMDB
         String url = "https://raw.githubusercontent.com/alura-cursos/imersao-java-2-api/main/TopMovies.json";
-        URI endereco = URI.create(url);
-        HttpClient client = HttpClient.newHttpClient();
-        HttpRequest request = HttpRequest.newBuilder(endereco).GET().build();
-        HttpResponse<String> response = client.send(request, BodyHandlers.ofString());
-        String body = response.body();
+
+        ClienteHttp http = new ClienteHttp();
+        String json = http.buscaDados(url);
 
         // Extrair só os dados que interessam(titulo, poster, nota, ano)
         JsonParser parser = new JsonParser();
-        List<Map<String, String>> listaDeConteudos = parser.parse(body);
+        List<Map<String, String>> listaDeConteudos = parser.parse(json);
 
         // Exibir e manipular os dados
         File diretorio = new File("alura-stickers\\saida");
